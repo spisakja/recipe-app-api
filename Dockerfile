@@ -24,7 +24,8 @@ RUN python -m venv /py && \
     adduser \
     --disabled-password \
     --no-create-home \
-    django-user
+    django-user && \
+    chown django-user -R /app
 
 ENV PATH="/py/bin:$PATH"
 
