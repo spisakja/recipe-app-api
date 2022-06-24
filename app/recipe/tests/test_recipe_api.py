@@ -28,7 +28,7 @@ def create_recipe(user, **params):
     }
     defaults.update(params)
 
-    recipe = Recipe.objects.create(user=user, **params)
+    recipe = Recipe.objects.create(user=user, **defaults)
     return recipe
 
 
@@ -70,12 +70,12 @@ class PrivateRecipeApiTests(TestCase):
 
     def test_recipe_list_limited_to_user(self):
         """Test list sof recipes is limited to authenticated user."""
-        other_user = get_user_model.objects.create_user(
+        other_user = get_user_model().objects.create_user(
             'other@example.com',
             'password123',
         )
         create_recipe(user=other_user)
-        create_recipe(iser=self.user)
+        create_recipe(user=self.user)
 
         res = self.client.get(RECIPES_URL)
 
