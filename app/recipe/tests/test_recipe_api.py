@@ -2,9 +2,6 @@
 Tests for recipe APIs.
 """
 from decimal import Decimal
-from distutils.command.build_scripts import first_line_re
-from os import stat
-from re import U
 
 from django.contrib.auth import get_user_model
 from django.test import TestCase
