@@ -4,7 +4,6 @@ Tests for recipe APIs.
 from decimal import Decimal
 import tempfile
 import os
-from venv import create
 
 from PIL import Image
 
